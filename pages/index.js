@@ -1,7 +1,5 @@
-export default function HomePage() {
-  return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
-  );
+import Profile from "@/components/Profile";
+
+export default function HomePage({ user, editBio }) {
+  return <Profile user={user} editBio={editBio} />;
 }

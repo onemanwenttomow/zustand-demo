@@ -13,6 +13,16 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    dangerouslyAllowSVG: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avataaars.io",
+        port: "",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
