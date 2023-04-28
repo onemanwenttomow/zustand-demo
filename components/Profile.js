@@ -1,6 +1,7 @@
 import Image from "next/image";
 import BioEditor from "./BioEditor";
 import styled from "styled-components";
+import useUserStore from "@/store";
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -16,7 +17,8 @@ const StyledHeading = styled.h2`
   margin: 0.8rem 0;
 `;
 
-export default function Profile({ user, editBio }) {
+export default function Profile() {
+  const user = useUserStore((state) => state.user);
   return (
     <StyledWrapper>
       <Image
@@ -29,7 +31,7 @@ export default function Profile({ user, editBio }) {
         <StyledHeading>
           {user.firstName} {user.lastName}
         </StyledHeading>
-        <BioEditor bio={user.bio} editBio={editBio} />
+        <BioEditor />
       </div>
     </StyledWrapper>
   );
