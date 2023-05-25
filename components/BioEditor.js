@@ -1,4 +1,5 @@
 import useUserStore from "@/store";
+import useStore from "@/useStore";
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import styled from "styled-components";
@@ -19,7 +20,8 @@ const StyledTextArea = styled.textarea`
 
 export default function BioEditor() {
   const [isEditMode, setIsEditMode] = useState(false);
-  const bio = useUserStore((state) => state.user.bio);
+
+  const bio = useStore(useUserStore, (state) => state.user.bio);
   const editBio = useUserStore((state) => state.editBio);
 
   function toggleEditMode() {
