@@ -2,6 +2,7 @@ import Image from "next/image";
 import BioEditor from "./BioEditor";
 import styled from "styled-components";
 import useUserStore from "@/store";
+import useStore from "@/useStore";
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -18,7 +19,12 @@ const StyledHeading = styled.h2`
 `;
 
 export default function Profile() {
-  const user = useUserStore((state) => state.user);
+  const user = useStore(useUserStore, (state) => state.user);
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <StyledWrapper>
       <Image
